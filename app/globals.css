@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 38% 97%;
+    --foreground: 25 22% 16%;
+
+    --card: 36 33% 94%;
+    --card-foreground: 25 22% 16%;
+
+    --popover: 40 38% 97%;
+    --popover-foreground: 25 22% 16%;
+
+    --primary: 140 24% 23%;
+    --primary-foreground: 40 38% 97%;
+
+    --secondary: 186 42% 19%;
+    --secondary-foreground: 40 38% 97%;
+
+    --muted: 34 20% 92%;
+    --muted-foreground: 30 8% 42%;
+
+    --accent: 96 16% 66%;
+    --accent-foreground: 25 22% 16%;
+
+    --border: 34 15% 85%;
+    --input: 34 15% 85%;
+    --ring: 140 24% 23%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 30 14% 9%;
+    --foreground: 40 30% 94%;
+
+    --card: 25 16% 15%;
+    --card-foreground: 40 30% 94%;
+
+    --popover: 30 14% 9%;
+    --popover-foreground: 40 30% 94%;
+
+    --primary: 140 22% 58%;
+    --primary-foreground: 30 14% 9%;
+
+    --secondary: 186 38% 42%;
+    --secondary-foreground: 30 14% 9%;
+
+    --muted: 30 10% 18%;
+    --muted-foreground: 34 12% 65%;
+
+    --accent: 96 12% 28%;
+    --accent-foreground: 40 30% 94%;
+
+    --border: 30 10% 22%;
+    --input: 30 10% 22%;
+    --ring: 140 22% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-foreground;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}

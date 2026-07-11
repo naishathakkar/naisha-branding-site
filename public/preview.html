@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Design system preview (static, zero-install)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --background: #faf8f4; --foreground: #322720;
+    --card: #f5f1eb; --card-foreground: #322720;
+    --primary: #2d4936; --primary-foreground: #faf8f4;
+    --secondary: #1c4145; --secondary-foreground: #faf8f4;
+    --muted: #efebe7; --muted-foreground: #746b63;
+    --accent: #a6b69a; --accent-foreground: #322720;
+    --border: #dedad3;
+  }
+  html.dark {
+    --background: #1a1714; --foreground: #f4f1eb;
+    --card: #2c2520; --card-foreground: #f4f1eb;
+    --primary: #7cab8c; --primary-foreground: #1a1714;
+    --secondary: #428c94; --secondary-foreground: #1a1714;
+    --muted: #322e29; --muted-foreground: #b0a79b;
+    --accent: #46503f; --accent-foreground: #f4f1eb;
+    --border: #3e3832;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--background); color: var(--foreground);
+    font-family: 'Inter', system-ui, sans-serif; transition: background .3s, color .3s;
+  }
+  .font-display { font-family: 'Fraunces', Georgia, serif; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--border);
+    background: color-mix(in srgb, var(--background) 85%, transparent);
+    backdrop-filter: blur(8px);
+  }
+  nav.bar { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; color: var(--foreground); text-decoration: none; }
+  .links { display: flex; gap: 28px; }
+  .links a { color: var(--muted-foreground); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
+  .links a:hover { color: var(--foreground); }
+  .nav-right { display: flex; align-items: center; gap: 12px; }
+
+  .theme-toggle {
+    width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--border);
+    background: transparent; color: var(--muted-foreground); cursor: pointer;
+    display: flex; align-items: center; justify-content: center; font-size: 16px;
+  }
+  .theme-toggle:hover { background: var(--muted); color: var(--foreground); }
+
+  main { padding: 64px 0 96px; }
+  section { margin-bottom: 72px; }
+  h1.hero { font-size: 44px; font-weight: 500; letter-spacing: -0.02em; margin: 16px 0; max-width: 720px; }
+  p.lead { font-size: 18px; color: var(--muted-foreground); max-width: 620px; line-height: 1.6; }
+  h2.section-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; margin-bottom: 20px; }
+
+  .badge {
+    display: inline-flex; align-items: center; border-radius: 999px; padding: 5px 14px;
+    font-size: 12px; font-weight: 500; letter-spacing: .01em; border: 1px solid transparent;
+  }
+  .badge-default { background: var(--primary); color: var(--primary-foreground); }
+  .badge-secondary { background: var(--secondary); color: var(--secondary-foreground); }
+  .badge-accent { background: var(--accent); color: var(--accent-foreground); }
+  .badge-muted { background: var(--muted); color: var(--muted-foreground); }
+  .badge-outline { border-color: var(--border); color: var(--foreground); }
+
+  .swatch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
+  .swatch { height: 80px; border-radius: 12px; border: 1px solid var(--border); }
+  .swatch-label { font-size: 13px; color: var(--muted-foreground); margin-top: 8px; }
+
+  .btn-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    height: 44px; padding: 0 24px; border-radius: 999px; font-size: 14px; font-weight: 500;
+    letter-spacing: .01em; border: 1px solid transparent; cursor: pointer; transition: opacity .2s, background .2s;
+  }
+  .btn-default { background: var(--primary); color: var(--primary-foreground); }
+  .btn-default:hover { opacity: .9; }
+  .btn-secondary { background: var(--secondary); color: var(--secondary-foreground); }
+  .btn-secondary:hover { opacity: .9; }
+  .btn-outline { background: transparent; border-color: var(--border); color: var(--foreground); }
+  .btn-outline:hover { background: var(--muted); }
+  .btn-ghost { background: transparent; color: var(--foreground); }
+  .btn-ghost:hover { background: var(--muted); }
+  .btn-link { background: transparent; color: var(--primary); padding: 0; height: auto; text-decoration: underline; text-underline-offset: 4px; }
+  .btn-sm { height: 36px; padding: 0 16px; font-size: 13px; }
+  .btn-lg { height: 48px; padding: 0 32px; font-size: 16px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav class="bar">
+      <a href="#" class="logo">Your Name</a>
+      <div class="links">
+        <a href="#">Home</a>
+        <a href="#">Research Library</a>
+        <a href="#">Healthcare Explained</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="nav-right">
+        <button class="theme-toggle" onclick="document.documentElement.classList.toggle('dark'); this.textContent = document.documentElement.classList.contains('dark') ? '☀' : '☾';">☾</button>
+        <button class="btn btn-default btn-sm">Read Latest Article</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <section>
+      <span class="badge badge-outline">Step 1 — Design system preview</span>
+      <h1 class="hero font-display">This is your foundation, not your homepage.</h1>
+      <p class="lead">A static, zero-install preview of the real tokens — same hex values as <code>globals.css</code>. Toggle the moon icon top-right to check dark mode.</p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Palette</h2>
+      <div class="swatch-grid">
+        <div><div class="swatch" style="background:var(--background)"></div><p class="swatch-label">Background — Warm White</p></div>
+        <div><div class="swatch" style="background:var(--foreground)"></div><p class="swatch-label">Foreground — Dark Brown</p></div>
+        <div><div class="swatch" style="background:var(--card)"></div><p class="swatch-label">Card — Soft Beige</p></div>
+        <div><div class="swatch" style="background:var(--primary)"></div><p class="swatch-label">Primary — Forest Green</p></div>
+        <div><div class="swatch" style="background:var(--secondary)"></div><p class="swatch-label">Secondary — Deep Teal</p></div>
+        <div><div class="swatch" style="background:var(--accent)"></div><p class="swatch-label">Accent — Muted Sage</p></div>
+        <div><div class="swatch" style="background:var(--muted)"></div><p class="swatch-label">Muted — Stone</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Typography</h2>
+      <p class="font-display" style="font-size:44px;margin:0 0 8px;">Display / Fraunces</p>
+      <p style="color:var(--muted-foreground); max-width:520px; line-height:1.6;">Body / Inter — the workhorse for articles, captions, and UI. It should feel effortless at long reading lengths.</p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Buttons</h2>
+      <div class="btn-row">
+        <button class="btn btn-default">Default</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-outline">Outline</button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button class="btn btn-link">Link style</button>
+        <button class="btn btn-default btn-sm">Small</button>
+        <button class="btn btn-default btn-lg">Large</button>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Badges</h2>
+      <div class="btn-row">
+        <span class="badge badge-default">Default</span>
+        <span class="badge badge-secondary">Secondary</span>
+        <span class="badge badge-accent">Accent</span>
+        <span class="badge badge-muted">Muted</span>
+        <span class="badge badge-outline">Outline</span>
+      </div>
+    </section>
+  </div>
+</main>
+
+</body>
+</html>
