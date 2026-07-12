@@ -29,9 +29,9 @@ export default function ContactPage() {
         </div>
 
         <div className="flex flex-col items-center gap-4">
-          <Button href="mailto:naisha.thakkar@example.com" size="lg">
+          <Button href="mailto:naishathakkar.work@gmail.com" size="lg">
             <Mail className="h-4 w-4" aria-hidden="true" />
-            naisha.thakkar@example.com
+            naishathakkar.work@gmail.com
           </Button>
           <p className="text-sm text-muted-foreground">
             Usually replies within a few days.
