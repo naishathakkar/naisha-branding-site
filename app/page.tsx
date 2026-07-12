@@ -75,17 +75,7 @@ export default function Home() {
                   aria-hidden="true"
                 />
                 <div className="flex h-full w-full items-center justify-center rounded-3xl border border-border bg-card p-8 text-center">
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    Professional portrait goes here. Drop your photo into{" "}
-                    <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">
-                      /public/portrait.jpg
-                    </code>{" "}
-                    and swap this placeholder for a{" "}
-                    <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">
-                      next/image
-                    </code>{" "}
-                    component.
-                  </p>
+                <img src="/potrait.jpg" alt="Naisha Thakkar" className="h-full w-full object-cover object-center"/>
                 </div>
               </div>
             </div>
