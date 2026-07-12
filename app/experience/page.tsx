@@ -25,42 +25,12 @@ export default function ExperiencePage() {
             volunteering — roughly in the order they happened.
           </p>
         </div>
-
-        <ol className="mx-auto max-w-3xl">
-          {experience.map((item, i) => (
-            <li key={item.id} className="flex gap-6">
-              <div className="flex flex-col items-center">
-                <span
-                  className="mt-1.5 h-3 w-3 shrink-0 rounded-full bg-primary"
-                  aria-hidden="true"
-                />
-                {i < experience.length - 1 && (
-                  <span
-                    className="mt-1 w-px flex-1 bg-border"
-                    aria-hidden="true"
-                  />
-                )}
-              </div>
-              <div className="pb-10">
-                <div className="flex flex-wrap items-center gap-3">
-                  <Badge variant="outline">{item.category}</Badge>
-                  <span className="text-sm text-muted-foreground">
-                    {item.dateRange}
-                  </span>
-                </div>
-                <h2 className="mt-3 font-display text-xl font-medium text-foreground">
-                  {item.title}
-                </h2>
-                <p className="text-sm text-muted-foreground">
-                  {item.organization}
-                </p>
-                <p className="mt-2 text-base leading-relaxed text-foreground/90">
-                  {item.description}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <div className="rounded-2xl border border-border bg-muted/30 p-8 text-center max-w-xl mx-auto mt-8">
+          <p className="text-muted-foreground leading-relaxed">
+            Currently focusing on my pharmacy studies, academic research, and science communication. 
+            Check back soon for updates as I begin updating my professional journey!
+          </p>
+        </div>
       </Container>
     </main>
   );
