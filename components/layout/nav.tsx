@@ -13,7 +13,7 @@ const links = [
   { href: "/research", label: "Research Library" },
   { href: "/research/questions", label: "Research Questions" },
   { href: "/projects/reproductions", label: "Code Reproductions" },
-  { href: "/toolkit", label: "Toolkit" },
+  { href: "/resources", label: "Toolkit" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
   { href: "/contact", label: "Contact" },
