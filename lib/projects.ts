@@ -17,61 +17,56 @@ export interface Project {
   resources?: ProjectLink[];
 }
 
-// Placeholder projects. Swap the text for your real work whenever you're
-// ready — add or remove entries freely, the page below adapts automatically.
 export const projects: Project[] = [
   {
-    slug: "drug-interaction-risk-ml",
-    title: "Predicting Drug Interaction Risk with Machine Learning",
+    slug: "bioactivity-prediction-pipeline",
+    title: "Bioactivity Prediction & Cheminformatics Pipeline",
     summary:
-      "A classification model that flags high-risk drug combinations from prescription data, built to catch what manual review sometimes misses.",
+      "A machine learning pipeline built with RDKit and Python to predict IC50 bioactivity values against target proteins using molecular fingerprints.",
     overview:
-      "This project explored whether a simple, interpretable machine learning model could flag potentially dangerous drug-drug interactions faster than manual chart review, using a public dataset of known interaction pairs and prescribing records.",
+      "This project explores how small molecule structure-activity relationships can be modeled quantitatively. Using bioactivity data retrieved from ChEMBL, the pipeline converts SMILES strings into molecular descriptors and trains machine learning models to predict target affinity.",
     problem:
-      "Community pharmacists often check for interactions using static reference tables that don't account for a patient's full medication list at once, especially for patients on five or more prescriptions.",
+      "Assessing compound bioactivity experimentally is time- and resource-intensive. Computational filtering of virtual libraries can prioritize promising drug candidates before lab testing.",
     methodology:
-      "I built a gradient-boosted classifier trained on a labeled dataset of known drug-drug interactions, using features like drug class, dosage, and co-prescription frequency, then validated it against a held-out test set and a rules-based baseline.",
+      "I used ChEMBL's web API to fetch bioactivity data for target proteins, calculated Lipinski descriptors and Morgan fingerprints via RDKit, and trained Random Forest and XGBoost regression models to predict IC50 values.",
     results:
-      "The model reached 91% precision on the test set and correctly flagged several interaction patterns the static reference table missed, though it also produced more false positives than the baseline for rare drug combinations.",
-    skills: ["Python", "scikit-learn", "Pandas", "Pharmacology", "Data Visualization"],
+      "The model achieved a strong coefficient of determination (R²) on test compound sets, demonstrating how molecular fingerprints capture key structural features driving target binding.",
+    skills: ["Python", "RDKit", "scikit-learn", "Pandas", "Cheminformatics"],
     futureDirections:
-      "Next steps include testing the model against real, de-identified pharmacy records and exploring whether patient-level variables like age and renal function improve precision on edge cases.",
-    publications: [
-      { label: "Poster presentation, Undergraduate Pharmacy Research Symposium, 2026" },
-    ],
+      "Next steps include testing Graph Neural Networks (GNNs) directly on molecular graphs and incorporating 3D conformational features.",
   },
   {
-    slug: "medication-adherence-study",
-    title: "Community Pharmacy Medication Adherence Study",
+    slug: "molecular-docking-reproduction",
+    title: "Paper Reproduction: Molecular Docking Benchmarks",
     summary:
-      "A survey-based study on why patients skip doses, and which pharmacy-level interventions actually seem to help.",
+      "A reproducible Jupyter notebook evaluating protein-ligand binding pose accuracy and binding affinities using AutoDock Vina.",
     overview:
-      "A small-scale survey study conducted with a local community pharmacy, looking at self-reported reasons for medication non-adherence among patients managing chronic conditions.",
+      "A computational study focused on reproducing published benchmark datasets for protein-ligand molecular docking, comparing predicted binding poses against crystal structures from the Protein Data Bank (PDB).",
     problem:
-      "Non-adherence is consistently linked to worse outcomes and higher long-term costs, but the reasons behind it vary by patient, and pharmacy-level interventions are rarely tested directly against each other.",
+      "Published computational chemistry papers often lack fully automated, open-source execution pipelines, making independent verification of docking accuracy challenging.",
     methodology:
-      "I designed and distributed a short anonymous survey to consenting patients picking up chronic-condition prescriptions, then analyzed responses for common barriers and cross-referenced them against which patients had received specific pharmacist counseling.",
+      "I set up a Python workflow utilizing Biopython and PyMOL to prepare target PDB structures and ligands, ran docking simulations using AutoDock Vina, and calculated RMSD values between predicted and experimental poses.",
     results:
-      "Cost and forgetfulness were the two most commonly cited barriers, and patients who received brief verbal counseling at pickup self-reported higher adherence confidence, though the sample size was too small to draw strong conclusions.",
-    skills: ["Survey Design", "Clinical Research", "Data Analysis", "Public Health"],
+      "Successfully reproduced published docking score trends for tested receptor-ligand complexes, identifying key sensitivity factors like active site flexibility and grid box positioning.",
+    skills: ["AutoDock Vina", "PyMOL", "Biopython", "Jupyter", "Structural Biology"],
     futureDirections:
-      "A larger, multi-site version of this study using actual refill-rate data, rather than self-reported adherence, would give a much clearer picture of which interventions are worth scaling.",
+      "Expanding the benchmark suite to evaluate machine-learning-based scoring functions alongside traditional force-field scoring.",
   },
   {
-    slug: "antibiotic-stewardship-dashboard",
-    title: "Antibiotic Stewardship Dashboard",
+    slug: "sequence-alignment-tool",
+    title: "Sequence Alignment & Gene Analysis Tool",
     summary:
-      "An internal dashboard concept for tracking antibiotic prescribing patterns and flagging outliers for review.",
+      "A lightweight Python toolkit for analyzing pairwise gene/protein sequence alignments and parsing PDB structural metadata.",
     overview:
-      "A prototype dashboard designed to help hospital antibiotic stewardship teams spot unusual prescribing patterns without digging through raw pharmacy records manually.",
+      "An open-source Python tool built to explore biological sequence comparison algorithms (Needleman-Wunsch & Smith-Waterman) and parse structural biological data.",
     problem:
-      "Stewardship teams are often small and stretched thin, and the data they need to catch overprescribing trends is usually scattered across systems that don't talk to each other.",
+      "Understanding basic bioinformatics algorithms requires getting hands-on with sequence scoring matrices and gap penalties rather than treating tools as black boxes.",
     methodology:
-      "Using a synthetic, non-patient dataset modeled on real prescribing patterns, I built a dashboard that visualizes prescribing volume by antibiotic class, department, and prescriber, with simple threshold-based flags for unusual spikes.",
+      "Implemented dynamic programming algorithms in Python for global and local sequence alignment, integrated with Biopython for fast FASTA file handling and PDB metadata extraction.",
     results:
-      "The prototype successfully surfaced simulated outlier cases in testing, and stewardship staff who reviewed a demo said the department-level breakdown was more immediately useful than the class-level one.",
-    skills: ["Data Visualization", "SQL", "Pharmacology", "UX Design"],
+      "The tool cleanly calculates alignment scores and highlights conserved residue regions across variant sequences.",
+    skills: ["Python", "Biopython", "Algorithms", "Bioinformatics"],
     futureDirections:
-      "The next version would need to connect to a real, properly de-identified and IRB-approved data source, and add role-based access before it could be piloted anywhere real.",
+      "Adding interactive visual outputs for sequence conservation maps using Matplotlib and Seaborn.",
   },
 ];
