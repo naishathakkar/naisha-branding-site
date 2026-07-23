@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/container";
 
 const titles = [
-  "B.Pharm Scholar",
-  "Computational Biology Researcher",
-  "Aspiring AI Innovator",
+  "Pharmacy",
+  "Computation",
+  "Biology",
 ];
 
 export default function Home() {
@@ -35,10 +35,11 @@ export default function Home() {
                 </h1>
 
                 <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-                  I am a pharmacy student at NMIMS bridging the gap between
+                  I am a pharmacy student at NMIMS exploring the intersection of
                   pharmaceutical sciences, machine learning, and computational
-                  biology. I build computational tools, critique research
-                  literature, and explore how software accelerates drug discovery.
+                  biology. Through research analysis, programming, and computational
+                  projects, I’m documenting my journey toward building software
+                  that can contribute to biological discovery and drug development.
                 </p>
               </div>
 
