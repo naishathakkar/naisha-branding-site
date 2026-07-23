@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/container";
 
 const titles = [
-  "Pharmacy Student",
-  "Healthcare Researcher",
-  "Science Communicator",
+  "B.Pharm Scholar",
+  "Computational Biology Researcher",
+  "Aspiring AI Innovator",
 ];
 
 export default function Home() {
@@ -35,18 +35,16 @@ export default function Home() {
                 </h1>
 
                 <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-                  I’m a pharmacy student passionate about making healthcare
-                  knowledge more accessible. Through evidence-based articles,
-                  research, and science communication, I explore the
-                  intersection of pharmacy, biotechnology, artificial
-                  intelligence, and public health—turning complex ideas into
-                  insights that inform, inspire, and empower.
+                  I am a pharmacy student at NMIMS bridging the gap between
+                  pharmaceutical sciences, machine learning, and computational
+                  biology. I build computational tools, critique research
+                  literature, and explore how software accelerates drug discovery.
                 </p>
               </div>
 
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-                <Button href="/research" size="lg" className="w-full sm:w-auto">
-                  Read Latest Article
+                <Button href="/projects" size="lg" className="w-full sm:w-auto">
+                  View Computational Projects
                 </Button>
                 <Button
                   href="/research"
@@ -74,8 +72,12 @@ export default function Home() {
                   className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-accent/40"
                   aria-hidden="true"
                 />
-                <div className="flex h-full w-full items-center justify-center rounded-3xl border border-border bg-card p-8 text-center">
-                <img src="/potrait.jpg" alt="Naisha Thakkar" className="h-full w-full object-cover object-center"/>
+                <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-3xl border border-border bg-card">
+                  <img
+                    src="/potrait.jpg"
+                    alt="Naisha Thakkar"
+                    className="h-full w-full object-cover object-center"
+                  />
                 </div>
               </div>
             </div>
