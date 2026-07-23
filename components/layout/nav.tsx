@@ -11,11 +11,11 @@ import { cn } from "@/lib/utils";
 const links = [
   { href: "/", label: "Home" },
   { href: "/research", label: "Research Library" },
-  { href: "/healthcare-explained", label: "Healthcare Explained" },
+  { href: "/research/questions", label: "Research Questions" },
+  { href: "/projects/reproductions", label: "Code Reproductions" },
+  { href: "/toolkit", label: "Toolkit" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
-  { href: "/experience", label: "Experience" },
-  { href: "/resources", label: "Resources" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -89,8 +89,8 @@ export function Nav() {
               <Moon className="h-[18px] w-[18px]" />
             )}
           </button>
-          <Button href="/research" size="sm">
-            Read Latest Article
+          <Button href="/projects" size="sm">
+            View Projects
           </Button>
         </div>
 
